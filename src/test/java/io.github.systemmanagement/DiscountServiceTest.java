@@ -1,9 +1,8 @@
 package io.github.systemmanagement;
 
-import io.github.systemmanagement.order.DiscountService;
-import io.github.systemmanagement.order.Order;
-import io.github.systemmanagement.order.Product;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,7 +11,12 @@ import static org.mockito.Mockito.*;
 class DiscountServiceTest {
 
     @Spy
-    private DiscountService discountService;
+    private DiscountService discountService = new DiscountService();
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @Test
     void testApplyDiscount() {

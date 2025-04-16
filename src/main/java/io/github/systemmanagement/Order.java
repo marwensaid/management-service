@@ -1,4 +1,4 @@
-package io.github.systemmanagement.order;
+package io.github.systemmanagement;
 
 import java.util.ArrayList;
 import java.util.List;

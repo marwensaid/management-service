@@ -1,11 +1,9 @@
 package io.github.systemmanagement;
 
-import io.github.systemmanagement.order.Order;
-import io.github.systemmanagement.order.Product;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -13,7 +11,12 @@ import static org.mockito.Mockito.*;
 class OrderTest {
 
     @Spy
-    private Order order = new Order();
+    Order order = new Order();
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @Test
     void testAddProductAndCalculateTotal() {

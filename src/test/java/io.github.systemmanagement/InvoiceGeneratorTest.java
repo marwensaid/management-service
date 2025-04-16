@@ -1,11 +1,9 @@
 package io.github.systemmanagement;
 
-import io.github.systemmanagement.order.DiscountService;
-import io.github.systemmanagement.order.InvoiceGenerator;
-import io.github.systemmanagement.order.Order;
-import io.github.systemmanagement.order.Product;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -14,10 +12,15 @@ import static org.mockito.Mockito.*;
 class InvoiceGeneratorTest {
 
     @Mock
-    private DiscountService discountService;
+    DiscountService discountService = new DiscountService();
 
     @Spy
     private InvoiceGenerator invoiceGenerator = new InvoiceGenerator(discountService);
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @Test
     void testGenerateInvoice() {

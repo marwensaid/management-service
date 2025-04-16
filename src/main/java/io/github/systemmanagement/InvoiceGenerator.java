@@ -1,4 +1,4 @@
-package io.github.systemmanagement.order;
+package io.github.systemmanagement;
 
 public class InvoiceGenerator {
     private DiscountService discountService;
